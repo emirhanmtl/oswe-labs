@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>TemplateMailer - Login</title></head>
+<body>
+<h1>TemplateMailer</h1>
+{% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+<form method="post">
+    <label>Username: <input type="text" name="username"></label><br>
+    <label>Password: <input type="password" name="password"></label><br>
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>

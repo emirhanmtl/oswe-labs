@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head><title>ShopNode - Dashboard</title></head>
+<body>
+<h1>Welcome, <%= username %> (<%= role %>)</h1>
+<p><a href="/logout">Logout</a></p>
+<h2>Preferences</h2>
+<pre><%= JSON.stringify(preferences, null, 2) %></pre>
+<p>Update your preferences with: <code>PUT /api/preferences</code></p>
+</body>
+</html>
