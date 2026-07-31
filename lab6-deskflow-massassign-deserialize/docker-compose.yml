@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: deskflow
+      POSTGRES_USER: deskflow
+      POSTGRES_PASSWORD: deskflow_pw
+    volumes:
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U deskflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  web:
+    build: ./app
+    restart: unless-stopped
+    environment:
+      DB_HOST: db
+      DB_NAME: deskflow
+      DB_USER: deskflow
+      DB_PASSWORD: deskflow_pw
+    ports:
+      - "8086:80"
+    depends_on:
+      db:
+        condition: service_healthy

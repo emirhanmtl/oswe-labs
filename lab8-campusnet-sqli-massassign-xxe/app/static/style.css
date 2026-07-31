@@ -1,0 +1,13 @@
+body { font-family: sans-serif; margin: 0; padding: 0 20px; color: #1a1a1a; }
+header { display: flex; gap: 16px; align-items: center; padding: 10px 0; border-bottom: 2px solid #0b3d91; flex-wrap: wrap; }
+header .brand { font-weight: bold; text-decoration: none; color: #0b3d91; font-size: 1.2em; }
+header a { color: #0b3d91; text-decoration: none; }
+header a:hover { text-decoration: underline; }
+.error { color: #b00020; }
+.success { color: #2e7d32; }
+table { border-collapse: collapse; margin-top: 10px; width: 100%; }
+th, td { text-align: left; padding: 6px 10px; }
+tr:nth-child(even) { background: #f5f7fb; }
+.card { border: 1px solid #ddd; border-radius: 6px; padding: 14px; margin: 10px 0; background: #fafbfd; }
+.tag { display: inline-block; background: #e8edf7; color: #0b3d91; padding: 2px 8px; border-radius: 10px; font-size: 0.85em; margin-left: 6px; }
+textarea, input[type=text], input[type=password] { padding: 6px; margin: 4px 0; }

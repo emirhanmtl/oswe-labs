@@ -1,0 +1,25 @@
+services:
+  db:
+    image: mongo:6
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  web:
+    build: ./app
+    restart: unless-stopped
+    environment:
+      MONGO_URL: mongodb://db:27017/gitlite
+    ports:
+      - "8087:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  mongo_data:

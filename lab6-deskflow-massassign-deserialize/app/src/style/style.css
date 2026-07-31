@@ -1,0 +1,8 @@
+body { font-family: sans-serif; margin: 0; padding: 0 20px; }
+header { display: flex; gap: 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid #ccc; }
+header .brand { font-weight: bold; text-decoration: none; }
+.error { color: #b00020; }
+.success { color: #2e7d32; }
+table { border-collapse: collapse; margin-top: 10px; }
+.comment { border-bottom: 1px solid #eee; padding: 6px 0; }
+.mention { background: #eef; padding: 2px 6px; border-radius: 4px; margin-right: 4px; }
