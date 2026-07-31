@@ -1,6 +1,0 @@
-services:
-  web:
-    build: ./app
-    restart: unless-stopped
-    ports:
-      - "8082:5000"
