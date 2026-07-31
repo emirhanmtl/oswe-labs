@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome, {{ user.display_name or user.username }}</h1>
+<p>Current balance: <strong>{{ user.balance }}</strong></p>
+<p>Daily transfer limit: {{ user.daily_limit }}</p>
+<p><a href="/transfer">Send money</a> | <a href="/statement">View statement</a></p>
+{% endblock %}

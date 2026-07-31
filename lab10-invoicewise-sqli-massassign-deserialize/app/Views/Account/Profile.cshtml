@@ -1,0 +1,14 @@
+@model User
+@{
+    ViewBag.Title = "My Profile";
+}
+<h1>My Profile</h1>
+@if (ViewBag.Success != null)
+{
+    <p class="success">@ViewBag.Success</p>
+}
+<form method="post" action="/Account/UpdateProfile">
+    <label>Full name: <input type="text" name="FullName" value="@Model.FullName" /></label><br />
+    <label>Email: <input type="text" name="Email" value="@Model.Email" /></label><br />
+    <button type="submit">Save</button>
+</form>

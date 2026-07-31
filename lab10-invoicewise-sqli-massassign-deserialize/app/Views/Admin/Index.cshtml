@@ -1,0 +1,19 @@
+@model List<User>
+@{
+    ViewBag.Title = "Admin - Users";
+}
+<h1>Admin Panel</h1>
+<p><a href="/Admin/Index">Users</a> | <a href="/Admin/Drafts">Invoice Draft Backup</a></p>
+<table>
+<tr><th>ID</th><th>Username</th><th>Full Name</th><th>Email</th><th>Admin?</th></tr>
+@foreach (var u in Model)
+{
+    <tr>
+        <td>@u.Id</td>
+        <td>@u.Username</td>
+        <td>@u.FullName</td>
+        <td>@u.Email</td>
+        <td>@(u.IsAdmin ? "yes" : "no")</td>
+    </tr>
+}
+</table>

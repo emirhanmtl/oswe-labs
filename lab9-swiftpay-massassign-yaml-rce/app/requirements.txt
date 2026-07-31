@@ -1,0 +1,6 @@
+Flask==2.3.3
+Werkzeug==2.3.7
+Flask-SQLAlchemy==3.0.5
+SQLAlchemy==2.0.21
+psycopg2-binary==2.9.9
+PyYAML==5.3.1

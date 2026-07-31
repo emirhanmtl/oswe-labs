@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SwiftPay{% if title %} - {{ title }}{% endif %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+    <a href="/dashboard" class="brand">SwiftPay</a>
+    {% if current_user %}
+        <span>Signed in as {{ current_user.username }}</span>
+        <a href="/transfer">Transfer</a>
+        <a href="/statement">Statement</a>
+        <a href="/account/settings">Settings</a>
+        {% if current_user.is_admin %}<a href="/admin">Admin</a>{% endif %}
+        <a href="/logout">Logout</a>
+    {% else %}
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <a href="/account/recover">Forgot access?</a>
+    {% endif %}
+</header>
+<main>
+{% block content %}{% endblock %}
+</main>
+</body>
+</html>

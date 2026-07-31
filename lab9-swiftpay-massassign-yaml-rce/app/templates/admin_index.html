@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Admin Panel</h1>
+<p><a href="/admin/settings/import">Import settings</a> | <a href="/admin/settings/export">Export settings</a></p>
+
+<h2>Users</h2>
+<table border="1" cellpadding="6">
+<tr><th>ID</th><th>Username</th><th>Email</th><th>Balance</th><th>Admin?</th></tr>
+{% for u in users %}
+<tr>
+    <td>{{ u.id }}</td>
+    <td>{{ u.username }}</td>
+    <td>{{ u.email }}</td>
+    <td>{{ u.balance }}</td>
+    <td>{{ "yes" if u.is_admin else "no" }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<h2>Platform settings</h2>
+<table border="1" cellpadding="6">
+<tr><th>Key</th><th>Value (YAML)</th></tr>
+{% for c in configs %}
+<tr>
+    <td>{{ c.key }}</td>
+    <td><pre>{{ c.value_yaml }}</pre></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

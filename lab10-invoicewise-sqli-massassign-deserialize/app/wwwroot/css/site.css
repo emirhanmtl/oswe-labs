@@ -1,0 +1,5 @@
+body { font-family: sans-serif; margin: 2rem; }
+.error { color: #b00020; }
+.success { color: #1a7f37; }
+table { border-collapse: collapse; margin-top: 1rem; }
+th, td { border: 1px solid #ccc; padding: 0.4rem 0.8rem; }

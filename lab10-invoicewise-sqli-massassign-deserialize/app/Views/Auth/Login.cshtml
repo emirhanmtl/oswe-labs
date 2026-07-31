@@ -1,0 +1,14 @@
+@{
+    ViewBag.Title = "Log In";
+}
+<h1>InvoiceWise - Log In</h1>
+@if (ViewBag.Error != null)
+{
+    <p class="error">@ViewBag.Error</p>
+}
+<form method="post" action="/Auth/Login">
+    <label>Username: <input type="text" name="username" /></label><br />
+    <label>Password: <input type="password" name="password" /></label><br />
+    <button type="submit">Log In</button>
+</form>
+<p><em>InvoiceWise is provisioned by IT - there is no self-service sign-up.</em></p>

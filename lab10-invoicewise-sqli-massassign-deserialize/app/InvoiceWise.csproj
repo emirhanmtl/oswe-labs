@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- BinaryFormatter is obsolete (SYSLIB0011) but still fully functional on net6.0 -
+         the restore-from-backup feature below depends on it. Web SDK projects disable it
+         by default as a hardening measure, so this app has to explicitly opt back in. -->
+    <NoWarn>SYSLIB0011</NoWarn>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+    <!-- Views are precompiled by default, which excludes the loose .cshtml sources from
+         the publish output - override that so the runtime-compilation feature above has
+         something on disk to recompile when a view file is edited after deploy. -->
+    <MvcRazorExcludeViewFilesFromPublish>false</MvcRazorExcludeViewFilesFromPublish>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.25" />
+  </ItemGroup>
+
+  <!-- Ship the raw .cshtml sources in the published/runtime image (not just the
+       precompiled views assembly) so AddRazorRuntimeCompilation() can pick up edits
+       made to a view on disk without a container rebuild. The SDK already treats these
+       as Content items by default, so this just overrides their publish behavior instead
+       of re-declaring them (which errors with NETSDK1022 duplicate-item). -->
+  <ItemGroup>
+    <Content Update="Views/**/*.cshtml">
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

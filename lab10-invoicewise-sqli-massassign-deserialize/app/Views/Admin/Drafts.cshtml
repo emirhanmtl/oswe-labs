@@ -1,0 +1,43 @@
+@model DraftsViewModel
+@{
+    ViewBag.Title = "Admin - Invoice Draft Backup";
+}
+<h1>Invoice Draft Backup</h1>
+<p><a href="/Admin/Index">Users</a> | <a href="/Admin/Drafts">Invoice Draft Backup</a></p>
+
+@if (ViewBag.Error != null)
+{
+    <p class="error">@ViewBag.Error</p>
+}
+@if (ViewBag.Success != null)
+{
+    <p class="success">@ViewBag.Success</p>
+}
+
+<h2>Export a draft backup</h2>
+<form method="post" action="/Admin/ExportDraft">
+    <label>Invoice:
+        <select name="invoiceId">
+            @foreach (var inv in Model.Invoices)
+            {
+                <option value="@inv.Id">#@inv.Id - @inv.Description</option>
+            }
+        </select>
+    </label>
+    <button type="submit">Generate backup blob</button>
+</form>
+
+@if (Model.Blob != null)
+{
+    <h3>Backup blob for invoice #@Model.ExportedInvoiceId</h3>
+    <p>Save this and use the restore form below to bring it back later.</p>
+    <textarea rows="6" cols="80" readonly>@Model.Blob</textarea>
+}
+
+<h2>Restore a draft backup</h2>
+<form method="post" action="/Admin/RestoreDraft">
+    <label>Backup blob:<br />
+        <textarea name="backup" rows="6" cols="80"></textarea>
+    </label><br />
+    <button type="submit">Restore</button>
+</form>

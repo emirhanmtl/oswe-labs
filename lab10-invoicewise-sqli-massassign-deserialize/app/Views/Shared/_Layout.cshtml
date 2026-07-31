@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@(ViewBag.Title ?? "InvoiceWise")</title>
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+    <header>
+        <strong>InvoiceWise</strong>
+        <nav>
+            <a href="/Invoices/Index">My Invoices</a> |
+            <a href="/Invoices/Search">Find Invoice</a> |
+            <a href="/Account/Profile">Profile</a> |
+            <a href="/Admin/Index">Admin</a> |
+            <form method="post" action="/Auth/Logout" style="display:inline">
+                <button type="submit">Log Out</button>
+            </form>
+        </nav>
+    </header>
+    <hr />
+    <main>
+        @RenderBody()
+    </main>
+</body>
+</html>

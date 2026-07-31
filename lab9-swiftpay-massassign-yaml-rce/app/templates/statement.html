@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Statement</h1>
+<form method="get">
+    <input type="text" name="q" placeholder="Filter by note" value="{{ q }}">
+    <button type="submit">Filter</button>
+</form>
+<table border="1" cellpadding="6">
+<tr><th>Date</th><th>Direction</th><th>Amount</th><th>Note</th></tr>
+{% for t in txns %}
+<tr>
+    <td>{{ t.created_at }}</td>
+    <td>{{ "Sent" if t.sender_id == user.id else "Received" }}</td>
+    <td>{{ t.amount }}</td>
+    <td>{{ t.note }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

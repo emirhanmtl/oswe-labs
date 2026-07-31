@@ -1,0 +1,21 @@
+@model List<RawDb.InvoiceHit>
+@{
+    ViewBag.Title = "Find Invoice";
+}
+<h1>Find Invoice by Client Email</h1>
+<form method="get" action="/Invoices/Search">
+    <input type="text" name="email" placeholder="client@example.com" value="@ViewBag.Email" />
+    <button type="submit">Search</button>
+</form>
+<table>
+<tr><th>ID</th><th>Client</th><th>Description</th><th>Amount</th></tr>
+@foreach (var hit in Model)
+{
+    <tr>
+        <td>@hit.Id</td>
+        <td>@hit.ClientName</td>
+        <td>@hit.Description</td>
+        <td>@hit.Amount.ToString("C")</td>
+    </tr>
+}
+</table>

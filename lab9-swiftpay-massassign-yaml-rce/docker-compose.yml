@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: swiftpay
+      POSTGRES_USER: swiftpay
+      POSTGRES_PASSWORD: swiftpay_pw
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U swiftpay"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  web:
+    build: ./app
+    restart: unless-stopped
+    environment:
+      DB_HOST: db
+      DB_NAME: swiftpay
+      DB_USER: swiftpay
+      DB_PASSWORD: swiftpay_pw
+    ports:
+      - "8089:5000"
+    depends_on:
+      db:
+        condition: service_healthy

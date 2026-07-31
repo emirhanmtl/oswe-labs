@@ -1,0 +1,17 @@
+@model List<Invoice>
+@{
+    ViewBag.Title = "My Invoices";
+}
+<h1>My Invoices</h1>
+<table>
+<tr><th>ID</th><th>Description</th><th>Amount</th><th>Status</th></tr>
+@foreach (var inv in Model)
+{
+    <tr>
+        <td>@inv.Id</td>
+        <td>@inv.Description</td>
+        <td>@inv.Amount.ToString("C")</td>
+        <td>@inv.Status</td>
+    </tr>
+}
+</table>

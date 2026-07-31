@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Import Platform Settings</h1>
+<p>Paste a settings YAML blob exported from another SwiftPay instance, or upload it as a
+file. Supports the full config shape (fee schedule, currency list, transfer limits).</p>
+{% if error %}<p class="error">{{ error }}</p>{% endif %}
+<form method="post" enctype="multipart/form-data">
+    <label>Paste YAML:<br><textarea name="yaml_config" rows="8" cols="70"></textarea></label><br>
+    <label>...or upload a file: <input type="file" name="config_file"></label><br>
+    <button type="submit">Import</button>
+</form>
+{% if result is not none %}
+<h2>Imported</h2>
+<pre>{{ result }}</pre>
+{% endif %}
+<p><a href="/admin">Back to admin panel</a></p>
+{% endblock %}

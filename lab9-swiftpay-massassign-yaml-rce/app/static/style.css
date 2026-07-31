@@ -1,0 +1,48 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background: #f7f7f9;
+    color: #222;
+}
+
+header {
+    background: #1b3a5c;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header a.brand {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.error {
+    color: #b00020;
+}
+
+.success {
+    color: #157347;
+}
+
+table {
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 6px 10px;
+}
