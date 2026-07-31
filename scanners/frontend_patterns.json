@@ -1,0 +1,18 @@
+[
+    {
+      "vuln": "Cross Site Scripting (XSS)",
+      "pattern": "document\\.write\\s*\\(|innerHTML\\s*=\\s*",
+      "description": "Use of document.write or innerHTML assignment with unsanitized input can cause XSS."
+    },
+    {
+      "vuln": "Remote Code Execution – Eval Usage",
+      "pattern": "\\beval\\s*\\(",
+      "description": "Use of eval() can lead to code injection."
+    },
+    {
+      "vuln": "Remote Code Execution – Function Constructor",
+      "pattern": "new\\s+Function\\s*\\(",
+      "description": "Using Function constructor with user input can cause RCE."
+    }
+  ]
+  

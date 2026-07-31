@@ -1,0 +1,27 @@
+[
+  {
+    "vuln": "Authentication Bypass – Weak JWT Verification",
+    "pattern": "jwt\\.verify\\s*\\(.*\\)",
+    "description": "Potential misuse of JWT verification allowing bypass."
+  },
+  {
+    "vuln": "Remote Code Execution – Eval Usage",
+    "pattern": "\\beval\\s*\\(",
+    "description": "Use of eval() can allow arbitrary code execution."
+  },
+  {
+    "vuln": "Remote Code Execution – Function Constructor",
+    "pattern": "new\\s+Function\\s*\\(",
+    "description": "Using Function constructor with user input can lead to RCE."
+  },
+  {
+    "vuln": "Remote Code Execution – Node Deserialization",
+    "pattern": "unserialize\\s*\\(",
+    "description": "Deserialization of untrusted data (e.g. node-serialize) can lead to RCE."
+  },
+  {
+    "vuln": "NoSQL Injection – MongoDB Operator",
+    "pattern": "(\\.find|\\.findOne|\\.count|\\.update)\\s*\\([\\s\\S]*?(\\$where|req\\.body|req\\.query|req\\.params)",
+    "description": "Potential NoSQL Injection if user input is passed directly to MongoDB queries."
+  }
+]

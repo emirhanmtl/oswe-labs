@@ -1,0 +1,23 @@
+[
+    {
+      "vuln": "Authentication Bypass – Insecure Password Check",
+      "pattern": "password\\.equals\\(.*\\)",
+      "description": "Potential insecure or hardcoded password check."
+    },
+    {
+      "vuln": "Privilege Escalation – XSS in JSP",
+      "pattern": "<%=?\\s*request\\.getParameter\\(.*\\)\\s*%>",
+      "description": "Direct output of user input in JSP without encoding – XSS risk."
+    },
+    {
+      "vuln": "Remote Code Execution – Deserialization",
+      "pattern": "ObjectInputStream\\.readObject\\(",
+      "description": "Deserialization of untrusted data can lead to RCE."
+    },
+    {
+      "vuln": "Remote Code Execution – Runtime Exec",
+      "pattern": "Runtime\\.getRuntime\\(\\)\\.exec\\(",
+      "description": "Executing OS commands directly can lead to injection if input not sanitized."
+    }
+  ]
+  
