@@ -1,0 +1,6 @@
+services:
+  web:
+    build: ./app
+    restart: unless-stopped
+    ports:
+      - "8084:8080"
