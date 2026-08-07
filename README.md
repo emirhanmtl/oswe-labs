@@ -1,6 +1,6 @@
 # OSWE Prep Labs
 
-Five self-contained, dockerized whitebox web app labs, each built around a vulnerability
+Ten self-contained, dockerized whitebox web app labs, each built around a vulnerability
 chain in the style of OSWE (WEB-300): full source code is available, there's no shell
 access to the box, and the goal is to read the code, find the bug(s), and write your own
 exploit script (Python/Node — whatever you're comfortable automating HTTP with) rather
